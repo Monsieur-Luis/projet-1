@@ -1,0 +1,15 @@
+:host {
+    display: block;
+    background-color: rgb(29, 201, 192);
+    padding: 10px;
+}
+
+.card {
+    max-width: 200px;
+    margin:10px
+}
+
+.flex {
+    display:flex;
+    flex-wrap:wrap;
+}

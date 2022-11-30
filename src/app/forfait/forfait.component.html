@@ -1,0 +1,21 @@
+
+<div>
+<p>{{forfait?.nom}}</p>
+<p>{{forfait?.description}}</p>
+<p>{{forfait?.code}}</p>
+<p>{{forfait?.categories}}</p>
+<p>{{forfait?.premium}}</p>
+<p>{{forfait?.dateDebut}}</p>
+<p>{{forfait?.dateFin}}</p>
+<p>{{forfait?.etablissement?.nomEtablissement}}</p>
+<p>{{forfait?.etablissement?.adresse}}</p>
+<p>{{forfait?.etablissement?.ville}}</p>
+<p>{{forfait?.etablissement?.telephone}}</p>
+<p>{{forfait?.etablissement?.courriel}}</p>
+<p>{{forfait?.etablissement?.siteWeb}}</p>
+<p>{{forfait?.etablissement?.description}}</p>
+<p>{{forfait?.avis?.commentaires}}</p>
+<p>{{forfait?.avis?.noteSurDix}}</p>
+<app-prix [prix]="forfait?.prix"></app-prix>
+<app-prix [nouveauPrix]="forfait?.nouveauPrix"></app-prix>
+</div>

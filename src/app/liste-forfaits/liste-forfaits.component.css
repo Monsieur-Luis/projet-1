@@ -1,0 +1,16 @@
+:host {
+    display: block;
+    background-color: rgb(255, 252, 92);
+    padding: 10px;
+
+}
+
+.premium{
+
+    background-color: red;
+
+}
+
+.barre{
+    text-decoration: line-through;
+}

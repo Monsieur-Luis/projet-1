@@ -1,0 +1,30 @@
+
+
+<div class="flex">
+    
+    <mat-card class="card" *ngFor="let f of forfaits">
+
+        <div *ngIf="f.premium === true">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{f.nom}}</mat-card-title>
+            
+            <mat-card-subtitle>{{f.etablissement.nomEtablissement}}</mat-card-subtitle>
+            <mat-card-subtitle> {{f.prix}}</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="f.nouveauPrix != f.prix">{{f.nouveauPrix}}</mat-card-subtitle>
+            <mat-card-subtitle>{{f.dateDebut}}</mat-card-subtitle>
+            <mat-card-subtitle>{{f.dateFin}}</mat-card-subtitle>
+            <mat-card-subtitle>{{f.description}}</mat-card-subtitle>
+
+            
+            
+        </mat-card-header>
+        <img mat-card-image src="https://picsum.photos/200/200" alt=" Lorem Picsum">
+        <mat-card-content>
+            <p>
+                {{f.description}}
+            </p>
+        </mat-card-content>
+    </div>
+    </mat-card>
+    </div>

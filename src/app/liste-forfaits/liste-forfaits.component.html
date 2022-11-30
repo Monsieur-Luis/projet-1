@@ -1,0 +1,33 @@
+
+Liste app-liste-forfaits
+<!--
+<app-forfait *ngFor="let f of forfaits" [forfait]="f"></app-forfait>
+-->
+
+<div *ngFor="let f of forfaits">
+
+    <div [ngClass]="{'premium' : f.premium === true}" >
+
+        <div>
+            <p>{{f.nom}}</p>
+            <p>{{f.description}}</p>
+            <p>{{f.categories}}</p>
+            <p>{{f.code}}</p>
+            <p>{{f.premium}}</p>
+            <p>{{f.dateDebut}}</p>
+            <p>{{f.dateFin}}</p>
+            <p>{{f.etablissement.nomEtablissement}}</p>
+            <p>{{f.etablissement.adresse}}</p>
+            <p>{{f.etablissement.ville}}</p>
+            <p>{{f.etablissement.telephone}}</p>
+            <p>{{f.etablissement.courriel}}</p>
+            <p>{{f.etablissement.siteWeb}}</p>
+            <p>{{f.etablissement.description}}</p>
+            <p>{{f.avis.commentaires}}</p>
+            <p>{{f.avis.noteSurDix}}</p>
+            <app-prix [prix]="f.prix"></app-prix>
+            
+        </div>
+
+    </div>
+</div>
