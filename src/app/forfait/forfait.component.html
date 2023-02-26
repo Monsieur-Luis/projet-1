@@ -1,5 +1,6 @@
 
 <div>
+
 <p>{{forfait?.nom}}</p>
 <p>{{forfait?.description}}</p>
 <p>{{forfait?.code}}</p>
@@ -16,6 +17,6 @@
 <p>{{forfait?.etablissement?.description}}</p>
 <p>{{forfait?.avis?.commentaires}}</p>
 <p>{{forfait?.avis?.noteSurDix}}</p>
-<app-prix [prix]="forfait?.prix"></app-prix>
-<app-prix [nouveauPrix]="forfait?.nouveauPrix"></app-prix>
+<app-prix [prix]="forfait?.prix || 0" [nouveauPrix]="forfait?.nouveauPrix || -1"></app-prix>
+
 </div>

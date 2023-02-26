@@ -1,0 +1,166 @@
+
+
+<form #forfaitFormAjout="ngForm">
+    <mat-form-field>
+        <mat-label>Forfait</mat-label>
+        <input matInput placeholder="Ex. Forfait" required minlength="2" maxlength="50" name="nom" 
+            [(ngModel)]="forfait.nom" #nom="ngModel" >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Ex. Description" required  name="description" 
+            [(ngModel)]="forfait.description" #description="ngModel" >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Prix</mat-label>
+        <input matInput placeholder="Ex. Description" required  name="prix" 
+            [(ngModel)]="forfait.prix" #code="ngModel" >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>code</mat-label>
+        <input matInput placeholder="Ex. code" required  name="code" 
+            [(ngModel)]="forfait.code" #code="ngModel" >
+    </mat-form-field>
+    
+    <mat-error *ngIf="nom.invalid && (nom.dirty || nom.touched) && nom.hasError('required')">
+        Le nom est obligatoire.
+    </mat-error>
+    <mat-error *ngIf="nom.invalid && (nom.dirty || nom.touched) && nom.hasError('minlength')">
+        Le nom doit contenir au moins 2 caractères.
+    </mat-error>
+    <mat-error *ngIf="nom.invalid && (nom.dirty || nom.touched) && nom.hasError('maxlength')">
+        Le nom doit contenir au maximum 50 caractères.
+    </mat-error>
+
+    <div>
+
+        <button *ngIf="forfait.id; else boutonAjout" mat-button mat-aria-label="Modifier" 
+            [disabled]="!forfaitFormAjout.form.valid" (click)="updateForfait(forfaitFormAjout)">Modifier</button>
+
+        <ng-template #boutonAjout>
+            <button mat-button mat-aria-label="Ajouter" 
+                [disabled]="!forfaitFormAjout.form.valid" (click)="addForfait(forfaitFormAjout)">
+                Créer
+            </button>
+        </ng-template>
+
+        <button mat-button mat-aria-label="Annuler" (click)="annuler()">
+            Annuler
+        </button>
+
+        
+    </div>
+
+</form>
+
+<!--  
+<form #forfaitForm="ngForm">
+    <div class="form-group">
+    <mat-form-field>
+        <mat-label for="nom">Nom du forfait</mat-label>
+        <input type="text" #nom="ngModel" name="nom" required minlength="2" maxlength="50" [(ngModel)]="newForfait.nom" matInput placeholder="Forfait">
+        <mat-error *ngIf="nom.invalid">Le nom est invalide</mat-error>
+    </mat-form-field>
+    </div>
+    <br>
+    <mat-form-field>
+        <mat-label for="description">Description</mat-label>
+        <textarea type="text" #description="ngModel" name="description" required [(ngModel)]="newForfait.description" matInput placeholder="Description"> </textarea>
+        <mat-error *ngIf="description.invalid">La description est invalide</mat-error>
+    </mat-form-field>
+    <br>
+    <h3>Établissement</h3>
+    <mat-form-field>
+        <mat-label for="NomEtablissement">Nom de l’établissement</mat-label>
+        <input  type="text" #NomEtablissement="ngModel" name="NomEtablissement" required [(ngModel)]="newForfait.etablissement.nomEtablissement" matInput placeholder="Nom de l’établissement">
+        <mat-error *ngIf="NomEtablissement.invalid">Le nom de l’établissement est invalide</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="adresse">Adresse</mat-label>
+        <input type="text" #adresse="ngModel" name="adresse" required [(ngModel)]="newForfait.etablissement.adresse" matInput placeholder="Adresse">
+        <mat-error *ngIf="adresse.invalid">L'adresse est invalide</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="ville">Ville</mat-label>
+        <input type="text" #ville="ngModel" name="ville" required [(ngModel)]="newForfait.etablissement.ville" matInput placeholder="ville"> 
+        <mat-error *ngIf="ville.invalid">La ville est invalide</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="telephone">Téléphone</mat-label>
+        <input type="tel" #telephone="ngModel" name="telephone" required [(ngModel)]="newForfait.etablissement.telephone"  matInput placeholder="téléphone">
+        <mat-error *ngIf="telephone.invalid">Le telephone est invalide</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="courriel">Courriel</mat-label>
+        <input type="email" #courriel="ngModel" name="courriel" required [(ngModel)]="newForfait.etablissement.courriel" [email]="true" matInput placeholder="courriel" >
+        <mat-error *ngIf="courriel.invalid">Le courriel est invalide</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="siteWeb">site web</mat-label>
+        <input type="text" #siteWeb="ngModel" name="siteWeb" required [(ngModel)]="newForfait.etablissement.siteWeb" matInput placeholder="site web">
+        <mat-error *ngIf="courriel.invalid">Le site web est invalide</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="description">Description établissement</mat-label>
+        <textarea type="text" #description="ngModel" name="description" required [(ngModel)]="newForfait.etablissement.description" matInput placeholder="Description établissement"> </textarea>
+        <mat-error *ngIf="description.invalid">La description est invalide</mat-error>
+    </mat-form-field>
+    <br>
+    
+    <mat-form-field appearance="fill">
+        <mat-label for="dateDebut">Date de début</mat-label>
+        <input name="dateDebut" [min]="minDate" [max]="maxDate" required matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label for="dateFin">Date de fin</mat-label>
+        <input name="dateFin" [min]="minDate" [max]="maxDate" required matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker> </mat-datepicker>
+      </mat-form-field>
+      <br>
+    
+      <mat-checkbox required class="example-margin">Premium</mat-checkbox>
+
+      <br>
+
+      <mat-form-field>
+        <mat-label>Prix</mat-label>
+        <input type="number" min="0" #prix="ngModel" name="prix" required [(ngModel)]="newForfait.prix" required matInput placeholder="Prix">
+        <mat-error *ngIf="prix.invalid">Le prix est invalide</mat-error>
+    </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Nouveau Prix</mat-label>
+            <input type="number" min="0" value="0" #nouveauPrix="ngModel" name="nouveauPrix" [(ngModel)]="newForfait.nouveauPrix" required matInput placeholder="Nouveau Prix">
+            <mat-error *ngIf="nouveauPrix.invalid">Le prix est invalide</mat-error>
+        </mat-form-field>
+
+        <br>
+        
+        
+          
+          <button mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+            Ajout de forfait
+          </button>
+          
+      
+</form>
+
+{{newForfait.nom}}
+{{newForfait.description}}
+-->
+

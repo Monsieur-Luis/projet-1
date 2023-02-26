@@ -63,7 +63,7 @@ export const FORFAITS: Forfait[] = [
         dateDebut: 'Date debut 3',
         dateFin: 'Date fin 3',
         prix: 30,
-        nouveauPrix:45,
+        nouveauPrix:25,
         premium: true,
         etablissement: {
 

@@ -1,7 +1,7 @@
 :host {
     display: block;
-    background-color: rgb(255, 252, 92);
-    padding: 10px;
+    background-color: rgb(230, 230, 212);
+    
 
 }
 
@@ -11,6 +11,3 @@
 
 }
 
-.barre{
-    text-decoration: line-through;
-}

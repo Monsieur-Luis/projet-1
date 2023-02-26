@@ -1,6 +1,7 @@
 import { Etablissement } from "./etablissement";
 import { Avis } from "./avis";
 export interface Forfait {
+    id?:number;
     nom: string;
     description: string;
     code: string;
@@ -9,8 +10,8 @@ export interface Forfait {
     dateFin: string;
     prix: number;
     nouveauPrix?: number;
-    etablissement: Etablissement;
     premium?: boolean;
-    avis: Avis
+    etablissement: Etablissement;
+    avis?: Avis
 
 }

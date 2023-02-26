@@ -1,0 +1,32 @@
+<p>recherche works!</p>
+
+<form #rechercheForm="ngForm">
+
+<div class="formGroup">
+    <mat-form-field>
+        <mat-label for="nom">Nom</mat-label>
+        <input type="text" #nom="ngModel" name="nom"  [(ngModel)]="recherche.nom"  matInput placeholder="">
+        
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="code">code</mat-label>
+        <input type="text" #nom="ngModel" name="code"  [(ngModel)]="recherche.code" matInput placeholder="">
+        
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+        <mat-label for="description">description</mat-label>
+        <input type="text" #nom="ngModel" name="description"  [(ngModel)]="recherche.description" matInput placeholder="">
+        
+    </mat-form-field>
+
+   Nom: {{recherche.nom}}
+   code: {{recherche.code}}
+   description: {{recherche.description}}
+
+</div>
+
+</form>

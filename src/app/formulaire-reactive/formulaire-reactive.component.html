@@ -1,0 +1,56 @@
+<p>formulaire-reactive works!</p>
+
+<form [formGroup]="reactiveForm">
+
+    <mat-form-field>
+        <mat-label for="nom">Nom</mat-label>
+        <input type="text" id="nom" formControlName = "nom" placeholder="nom">
+        
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="prenom">prenom</mat-label>
+        <input type="text" id="prenom" formControlName = "prenom" placeholder="prenom">
+        
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="courriel">Courriel</mat-label>
+        <input type="email" id="courriel" formControlName = "courriel" placeholder="courriel" >      
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label for="telephone">Téléphone</mat-label>
+        <input type="tel" id="telephone" formControlName = "telephone" placeholder="Téléphone" >      
+    </mat-form-field>
+    <br>
+    <mat-radio-group aria-label="Préférence de communication">
+        <mat-radio-button type="radio" id="courriel" value="courriel" formControlName="communication">Courriel</mat-radio-button>
+        <mat-radio-button type="radio" id="telephone" value="telephone" formControlName="communication">Téléphone</mat-radio-button>
+      </mat-radio-group>
+      <br>
+      <mat-form-field>
+        <input type="text" matInput [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let motif of " [value]="motif">
+                {{motif}}
+            </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label for="message">Message</mat-label>
+        <input type="text" id="message" formControlName = "message" matInput> 
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput formControlName="datepicker" [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-slide-toggle>Slide me!</mat-slide-toggle>
+
+</form>

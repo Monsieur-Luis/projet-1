@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    
+}
+
+.container > a{
+
+    padding: 1rem;
+}

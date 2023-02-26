@@ -1,5 +1,12 @@
 
+<div *ngIf=" nouveauPrix >= 0 && prix > nouveauPrix || prix == nouveauPrix; else elseBlock">
+    <p ngClass="barre">Prix regulière: {{prix}} $</p>
+    <p>Économie de: {{prix - nouveauPrix}}</p>
+    <p> Nouveau Prix: {{nouveauPrix}} $ </p>
+</div>
+<ng-template #elseBlock>
+    <p>Prix regulière: {{prix}} $ </p>
 
-<p>Prix regulière: {{prix}} $ </p>
+</ng-template>
 
-<p> Nouveau Prix: {{nouveauPrix}} $ </p>
+

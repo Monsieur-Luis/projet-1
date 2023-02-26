@@ -1,0 +1,52 @@
+
+
+<div class="flex-container">
+
+    
+
+    <button mat-fab color="primary" aria-label="Ajouter" (click)="openDialog(undefined)"><mat-icon>add</mat-icon></button>
+
+    <!-- Formulaire de recherche (filtre) -->
+    <mat-form-field class="ml-auto">
+        <mat-label>Filtre</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</div>
+
+
+<table mat-table #tableProduits [dataSource]="dataSourceForfaits" matSort>
+
+    <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+        <td mat-cell *matCellDef="let forfait"> {{forfait.nom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let forfait"> {{forfait.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prix">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Prix </th>
+        <td mat-cell *matCellDef="let forfait"> {{forfait.prix}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let forfait">
+            <button mat-icon-button aria-label="Modifier" (click)="openDialog(forfait)"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button aria-label="Supprimer" (click)="deleteForfait(forfait.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Sélectionner la page des forfaits"></mat-paginator>
+
+<app-graphique1></app-graphique1>
